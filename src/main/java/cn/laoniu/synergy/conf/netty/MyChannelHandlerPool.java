@@ -42,16 +42,16 @@ public class MyChannelHandlerPool {
         channelSet.add(channel);
         GroupChannel.put(gId, channelSet);
     }
-
+    /***
+     * 取消绑定群组与channel
+     */
     public static void unBindGroupChannel(Channel channel) {
         String gid = Channel_ATTR.get(channel);
         Set<Channel> channelSet = GroupChannel.get(gid);
         channelSet.remove(channel);
     }
 
-    /***
-     * 取消绑定群组与channel
-     */
+
     public static boolean contains(String gId, Channel channel) {
         Set<Channel> channelSet = GroupChannel.get(gId);
         if (channelSet == null) {
