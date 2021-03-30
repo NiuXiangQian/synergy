@@ -38,7 +38,7 @@ public class SelectHandle implements WebSocketReadHandle {
             TextWebSocketFrame frame = (TextWebSocketFrame) msg;
             //@todo 区分markdown excel word ppt
 
-            contentHandle.handle(ctx, (TextWebSocketFrame) msg);
+            contentHandle.handle(ctx, frame);
         }
     }
 
