@@ -14,7 +14,8 @@
     <table>
         <tr>
             <!--                          th:text="${#request.getAttribute('gid')} " -->
-            <td><textarea name="" id="md-area" onkeyup=send(this.value) onchange="mdSwitch()"></textarea></td>
+            <td><textarea name="" id="md-area" th:text="${#request.getAttribute('data')} " onkeyup=send(this.value)
+                          onchange="mdSwitch()"></textarea></td>
             <td>
                 <div id="show-area" class="clearfix"></div>
             </td>
@@ -259,13 +260,14 @@
         var html = converter.makeHtml(mdValue);
         document.getElementById("show-area").innerHTML = html;
     }
+    mdSwitch()
 </script>
 <script language="JavaScript">
 
-function reg(str1,str2){
+    function reg(str1, str2) {
 
 
-}
+    }
 
 </script>
 </body>

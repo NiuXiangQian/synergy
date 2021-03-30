@@ -24,7 +24,7 @@ public class DocStorageInMemory implements DocStorage {
     private static final Map<String, DocModel> DOC_MODEL_MAP = new ConcurrentHashMap<>();
 
     @Override
-    public void add(DocModel docModel) throws Exception {
+    public void add(DocModel docModel) {
         DOC_MODEL_MAP.put(docModel.getId(), docModel);
     }
 

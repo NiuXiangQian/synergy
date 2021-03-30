@@ -19,7 +19,7 @@ public interface DocStorage {
      * @param docModel:
      * @return cn.laoniu.synergy.service.storage.model.DocModel
      */
-    void add(DocModel docModel) throws Exception;
+    void add(DocModel docModel);
 
     /***
      * 根据id获取doc数据

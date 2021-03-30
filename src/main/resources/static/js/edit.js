@@ -15,11 +15,11 @@ if (window.WebSocket) {
     };
     socket.onopen = function (event) {
         var ta = document.getElementById('md-area');
-        ta.value = "Netty-WebSocket服务器。。。。。。连接  \r\n";
+        // ta.value = "Netty-WebSocket服务器。。。。。。连接  \r\n";
     };
     socket.onclose = function (event) {
         var ta = document.getElementById('md-area');
-        ta.value = "Netty-WebSocket服务器。。。。。。关闭 \r\n";
+        // ta.value = "Netty-WebSocket服务器。。。。。。关闭 \r\n";
     };
 } else {
     alert("您的浏览器不支持WebSocket协议！");

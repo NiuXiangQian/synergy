@@ -15,5 +15,4 @@ import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 public interface ContentHandle {
     void handle(ChannelHandlerContext ctx, TextWebSocketFrame textWebSocketFrame) throws Exception;
 
-
 }

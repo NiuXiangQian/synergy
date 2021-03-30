@@ -1,5 +1,9 @@
 package cn.laoniu.synergy.controller;
 
+import cn.laoniu.synergy.service.storage.DocStorage;
+import cn.laoniu.synergy.service.storage.model.DocModel;
+import cn.laoniu.synergy.service.storage.model.MarkDownModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +22,8 @@ import java.util.UUID;
  **/
 @Controller
 public class IndexController {
+    @Autowired
+    private DocStorage docStorage;
 
     @GetMapping("/")
     public String index() {
@@ -28,6 +34,10 @@ public class IndexController {
     public String create(HttpServletRequest request) {
         String gid = UUID.randomUUID().toString();
         request.setAttribute("gid", gid);
+        MarkDownModel downModel = new MarkDownModel();
+        downModel.setData("");
+        downModel.setId(gid);
+        docStorage.add(downModel);
 
         return "redirect:t/" + gid;
     }
@@ -35,7 +45,11 @@ public class IndexController {
     @GetMapping("t/{gid}")
     public String t(@PathVariable String gid, HttpServletRequest request) {
         request.setAttribute("gid", gid);
-        System.out.println("gid = " + gid);
+        DocModel docModel = docStorage.get(gid);
+        if (docModel == null) {
+            return "notfound";
+        }
+        request.setAttribute("data", docModel.getData());
         return "edit";
     }
 

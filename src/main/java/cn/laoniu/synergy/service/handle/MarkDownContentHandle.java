@@ -1,8 +1,11 @@
 package cn.laoniu.synergy.service.handle;
 
 import cn.laoniu.synergy.conf.netty.MyChannelHandlerPool;
+import cn.laoniu.synergy.service.storage.DocStorage;
+import cn.laoniu.synergy.service.storage.model.DocModel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,12 +19,19 @@ import org.springframework.stereotype.Component;
  **/
 @Component
 public class MarkDownContentHandle implements ContentHandle {
+    @Autowired
+    private DocStorage docStorage;
+
     @Override
     public void handle(ChannelHandlerContext ctx, TextWebSocketFrame frame) throws Exception {
         //            //正常的TEXT消息类型
         String gId = MyChannelHandlerPool.Channel_ATTR.get(ctx.channel());
+        String data = frame.text();
+        DocModel docModel = docStorage.get(gId);
+        docModel.setData(data);
+
         //发送至分组
-        sendToGroup(gId, frame.text());
+        sendToGroup(gId, data);
     }
 
     /***
