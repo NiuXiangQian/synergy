@@ -10,6 +10,6 @@ ___
 - mvn package
 运行
 - 访问 127.0.0.1:8000
-![效果](https://raw.githubusercontent.com/lulushen/SwiftNotes/master/image/1.png)
+![效果](hhttps://github.com/NiuXiangQian/synergy/master/doc/demo.png)
 ___
 联系方式：qq：1603565290
