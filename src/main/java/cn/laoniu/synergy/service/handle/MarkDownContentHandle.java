@@ -24,12 +24,11 @@ public class MarkDownContentHandle implements ContentHandle {
 
     @Override
     public void handle(ChannelHandlerContext ctx, TextWebSocketFrame frame) throws Exception {
-        //            //正常的TEXT消息类型
+        // 正常的TEXT消息类型
         String gId = MyChannelHandlerPool.Channel_ATTR.get(ctx.channel());
         String data = frame.text();
         DocModel docModel = docStorage.get(gId);
         docModel.setData(data);
-
         //发送至分组
         sendToGroup(gId, data);
     }

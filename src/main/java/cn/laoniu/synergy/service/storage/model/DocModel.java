@@ -9,24 +9,15 @@ package cn.laoniu.synergy.service.storage.model;
  * @updateRemark:
  * @version: 1.0
  **/
-public class DocModel {
-    private String id;
-    private Object data;
+public interface DocModel {
 
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    String getId();
 
-    public Object getData() {
-        return data;
-    }
+    void setId(String id);
 
-    public void setData(Object data) {
-        this.data = data;
-    }
+    Object getData();
+
+    void setData(Object data);
 }

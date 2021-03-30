@@ -9,5 +9,26 @@ package cn.laoniu.synergy.service.storage.model;
  * @updateRemark:
  * @version: 1.0
  **/
-public class WordModel extends DocModel {
+public class WordModel implements DocModel {
+    private String id;
+    private String data;
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public String getData() {
+        System.out.println("this"+data);
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data.toString();
+    }
 }
