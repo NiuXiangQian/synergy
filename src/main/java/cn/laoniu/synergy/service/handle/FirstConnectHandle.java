@@ -40,7 +40,7 @@ public class FirstConnectHandle implements WebSocketReadHandle {
             request.setUri(newUri);
         }
     }
-    private static Map getUrlParams(String url) {
+    private static Map<String, String> getUrlParams(String url) {
         Map<String, String> map = new HashMap<>();
         url = url.replace("?", ";");
         if (!url.contains(";")) {

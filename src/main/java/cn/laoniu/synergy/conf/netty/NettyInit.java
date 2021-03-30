@@ -24,7 +24,6 @@ public class NettyInit implements CommandLineRunner {
     public void init() {
         try {
             nettyServer.start();
-
             //new NettyServer(12345).start();
         } catch (Exception e) {
             e.printStackTrace();

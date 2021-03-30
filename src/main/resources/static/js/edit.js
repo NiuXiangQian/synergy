@@ -25,7 +25,9 @@ if (window.WebSocket) {
     alert("您的浏览器不支持WebSocket协议！");
 }
 
+//todo 增量更新问题
 function send(message) {
+
     if (!window.WebSocket) {
         return;
     }
