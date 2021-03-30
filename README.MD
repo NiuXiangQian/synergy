@@ -1,5 +1,5 @@
 ## synergy
-基于netty-websocket的协同编辑，目前刚处于起步构思阶段，欢迎有想法的人加入
+目标打造一个基于springboot+netty的markdown、word、excel、ppt协同编辑，目前刚刚处于起步构思阶段，先开始做markdown的协同，欢迎有想法、有经验的大佬🧍‍️指导
 ___
 ### 环境
 - jdk1.8
