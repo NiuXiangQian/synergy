@@ -10,4 +10,14 @@ package cn.laoniu.synergy.service.storage.model;
  * @version: 1.0
  **/
 public class MarkDownModel extends DocModel {
+    private String data;
+
+    @Override
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
 }

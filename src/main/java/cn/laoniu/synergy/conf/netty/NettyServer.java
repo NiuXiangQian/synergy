@@ -1,4 +1,4 @@
-package cn.laoniu.synergy.conf;
+package cn.laoniu.synergy.conf.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -12,18 +12,21 @@ import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.stream.ChunkedWriteHandler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
-/**
- * NettyServer Netty服务器配置
- * @author zhengkai.blog.csdn.net
- * @date 2019-06-12
- */
+
+
+@Component
 public class NettyServer {
-    private final int port;
 
-    public NettyServer(int port) {
-        this.port = port;
-    }
+    @Value("${netty.port}")
+    private  int port;
+    @Autowired
+    private MyWebSocketHandler myWebSocketHandler;
+
+
 
     public void start() throws Exception {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
@@ -46,7 +49,8 @@ public class NettyServer {
                             ch.pipeline().addLast(new ChunkedWriteHandler());
                             ch.pipeline().addLast(new HttpObjectAggregator(8192));
 
-                            ch.pipeline().addLast(new MyWebSocketHandler());
+                            System.out.println("myWebSocketHandler = " + myWebSocketHandler);
+                            ch.pipeline().addLast(myWebSocketHandler);
                             ch.pipeline().addLast(new WebSocketServerProtocolHandler("/ws", null, true, 65536 * 10));
 
 

@@ -1,10 +1,12 @@
-package cn.laoniu.synergy.conf;
+package cn.laoniu.synergy.conf.netty;
 
 import com.alibaba.fastjson.JSON;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +20,8 @@ import java.util.Map;
  * @updateRemark:
  * @version: 1.0
  **/
+@Component //接入spring管理
+@ChannelHandler.Sharable
 public class MyWebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
 
     @Override

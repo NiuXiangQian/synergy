@@ -1,4 +1,4 @@
-package cn.laoniu.synergy.conf;
+package cn.laoniu.synergy.conf.netty;
 
 import io.netty.channel.Channel;
 import io.netty.channel.group.ChannelGroup;
