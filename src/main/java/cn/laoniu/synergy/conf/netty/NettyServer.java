@@ -17,7 +17,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 
-
+/***
+ * netty server
+ * @author nxq email: niuxiangqian163@163.com
+ * @version 1.0
+ * @since 2021/3/30 4:47 下午
+ **/
 @Component
 public class NettyServer {
 

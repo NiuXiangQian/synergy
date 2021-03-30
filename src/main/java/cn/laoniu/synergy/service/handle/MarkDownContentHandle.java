@@ -8,14 +8,12 @@ import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * @description: todo markdown考虑更换 ['https://prosemirror.xheldon.com/',]
- * @author: nxq email: niuxiangqian163@163.com
- * @createDate: 2021/3/30 6:35 下午
- * @updateUser: nxq email: niuxiangqian163@163.com
- * @updateDate: 2021/3/30 6:35 下午
- * @updateRemark:
- * @version: 1.0
+
+/***
+ * todo markdown考虑更换 ['https://prosemirror.xheldon.com/',]
+ * @author nxq email: niuxiangqian163@163.com
+ * @version 1.0
+ * @since 2021/3/30 6:35 下午
  **/
 @Component
 public class MarkDownContentHandle implements ContentHandle {
@@ -38,7 +36,6 @@ public class MarkDownContentHandle implements ContentHandle {
      * @author nxq
      * @param gId:
      * @param message:
-     * @return void
      */
     private void sendToGroup(String gId, String message) {
 

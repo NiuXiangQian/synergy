@@ -1,17 +1,15 @@
 package cn.laoniu.synergy.service.storage.model;
 
-/**
- * @description:
- * @author: nxq email: niuxiangqian163@163.com
- * @createDate: 2021/3/30 4:47 下午
- * @updateUser: nxq email: niuxiangqian163@163.com
- * @updateDate: 2021/3/30 4:47 下午
- * @updateRemark:
- * @version: 1.0
+/***
+ *
+ * @author nxq email: niuxiangqian163@163.com
+ * @version 1.0
+ * @since 2021/3/30 4:47 下午
  **/
 public class WordModel implements DocModel {
     private String id;
     private String data;
+
     @Override
     public String getId() {
         return id;
@@ -24,7 +22,7 @@ public class WordModel implements DocModel {
 
     @Override
     public String getData() {
-        System.out.println("this"+data);
+        System.out.println("this" + data);
         return data;
     }
 

@@ -2,14 +2,11 @@ package cn.laoniu.synergy.service.storage;
 
 import cn.laoniu.synergy.service.storage.model.DocModel;
 
-/**
- * @description: 文档存储
- * @author: nxq email: niuxiangqian163@163.com
- * @createDate: 2021/3/30 4:36 下午
- * @updateUser: nxq email: niuxiangqian163@163.com
- * @updateDate: 2021/3/30 4:36 下午
- * @updateRemark:
- * @version: 1.0
+/***
+ *
+ * @author nxq email: niuxiangqian163@163.com
+ * @version 1.0
+ * @since 2021/3/30 4:47 下午
  **/
 public interface DocStorage {
 
@@ -17,7 +14,6 @@ public interface DocStorage {
      * 添加一个doc数据
      * @author nxq
      * @param docModel:
-     * @return cn.laoniu.synergy.service.storage.model.DocModel
      */
     void add(DocModel docModel);
 

@@ -6,14 +6,11 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * @description: 在内存中的doc
- * @author: nxq email: niuxiangqian163@163.com
- * @createDate: 2021/3/30 4:51 下午
- * @updateUser: nxq email: niuxiangqian163@163.com
- * @updateDate: 2021/3/30 4:51 下午
- * @updateRemark:
- * @version: 1.0
+/***
+ *
+ * @author nxq email: niuxiangqian163@163.com
+ * @version 1.0
+ * @since 2021/3/30 4:47 下午
  **/
 @Service
 public class DocStorageInMemory implements DocStorage {

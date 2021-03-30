@@ -11,15 +11,13 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @description: 选择处理器
- * @author: nxq email: niuxiangqian163@163.com
- * @createDate: 2021/3/30 6:25 下午
- * @updateUser: nxq email: niuxiangqian163@163.com
- * @updateDate: 2021/3/30 6:25 下午
- * @updateRemark:
- * @version: 1.0
+/***
+ * 选择处理器
+ * @author nxq email: niuxiangqian163@163.com
+ * @version 1.0
+ * @since 2021/3/30 6:25 下午
  **/
+
 @Component
 public class SelectHandle implements WebSocketReadHandle {
 
@@ -36,7 +34,7 @@ public class SelectHandle implements WebSocketReadHandle {
             //接收消息
         } else if (msg instanceof TextWebSocketFrame) {
             TextWebSocketFrame frame = (TextWebSocketFrame) msg;
-            //@todo 区分markdown excel word ppt
+            //todo 区分markdown excel word ppt
 
             contentHandle.handle(ctx, frame);
         }

@@ -10,14 +10,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * @description:
- * @author: nxq email: niuxiangqian163@163.com
- * @createDate: 2021/3/30 9:21 上午
- * @updateUser: nxq email: niuxiangqian163@163.com
- * @updateDate: 2021/3/30 9:21 上午
- * @updateRemark:
- * @version: 1.0
+/***
+ *
+ * @author nxq email: niuxiangqian163@163.com
+ * @version 1.0
+ * @since 2021/3/30 9:21 上午
  **/
 public class MyChannelHandlerPool {
     public MyChannelHandlerPool() {
@@ -42,6 +39,7 @@ public class MyChannelHandlerPool {
         channelSet.add(channel);
         GroupChannel.put(gId, channelSet);
     }
+
     /***
      * 取消绑定群组与channel
      */

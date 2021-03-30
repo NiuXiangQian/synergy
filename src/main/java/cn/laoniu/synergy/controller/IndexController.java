@@ -11,14 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import javax.servlet.http.HttpServletRequest;
 import java.util.UUID;
 
-/**
- * @description:
- * @author: nxq email: niuxiangqian163@163.com
- * @createDate: 2021/3/30 9:19 上午
- * @updateUser: nxq email: niuxiangqian163@163.com
- * @updateDate: 2021/3/30 9:19 上午
- * @updateRemark:
- * @version: 1.0
+/***
+ *
+ * @author nxq email: niuxiangqian163@163.com
+ * @version 1.0
+ * @since 2021/3/30 4:47 下午
  **/
 @Controller
 public class IndexController {

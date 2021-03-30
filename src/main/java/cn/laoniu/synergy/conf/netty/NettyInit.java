@@ -6,14 +6,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
-/**
- * @description:
- * @author: nxq email: niuxiangqian163@163.com
- * @createDate: 2021/3/30 5:16 下午
- * @updateUser: nxq email: niuxiangqian163@163.com
- * @updateDate: 2021/3/30 5:16 下午
- * @updateRemark:
- * @vrsion: 1.0
+/***
+ *
+ * @author nxq email: niuxiangqian163@163.com
+ * @version 1.0
+ * @since 2021/3/30 5:16 下午
  **/
 @Component
 public class NettyInit implements CommandLineRunner {

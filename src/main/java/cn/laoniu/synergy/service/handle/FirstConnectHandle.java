@@ -9,15 +9,14 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @description: 首次连接
- * @author: nxq email: niuxiangqian163@163.com
- * @createDate: 2021/3/30 6:23 下午
- * @updateUser: nxq email: niuxiangqian163@163.com
- * @updateDate: 2021/3/30 6:23 下午
- * @updateRemark:
- * @version: 1.0
+
+/***
+ * 首次连接
+ * @author nxq email: niuxiangqian163@163.com
+ * @version 1.0
+ * @since 2021/3/30 6:23 下午
  **/
+
 @Component
 public class FirstConnectHandle implements WebSocketReadHandle {
 
@@ -40,6 +39,7 @@ public class FirstConnectHandle implements WebSocketReadHandle {
             request.setUri(newUri);
         }
     }
+
     private static Map<String, String> getUrlParams(String url) {
         Map<String, String> map = new HashMap<>();
         url = url.replace("?", ";");
