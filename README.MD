@@ -13,3 +13,4 @@ ___
 ![效果](hhttps://github.com/NiuXiangQian/synergy/master/doc/demo.png)
 ___
 联系方式：qq：1603565290
+目前在做：重构为vue
