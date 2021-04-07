@@ -15,8 +15,24 @@
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
+        <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring-cloud-alibaba.version>2.2.4.RELEASE</spring-cloud-alibaba.version>
+        <java.version>1.8</java.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <fastjson.version>1.2.47</fastjson.version>
+        <durid.version>1.1.9</durid.version>
+        <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
+        <mybatis-plus.baomidou.version>3.3.2</mybatis-plus.baomidou.version>
+        <mybatis-spring-boot.version>2.1.4</mybatis-spring-boot.version>
+        <swagger-ui.version>2.8.0</swagger-ui.version>
+        <swagger-bootstrap-ui.version>1.8.5</swagger-bootstrap-ui.version>
     </properties>
     <dependencies>
+
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

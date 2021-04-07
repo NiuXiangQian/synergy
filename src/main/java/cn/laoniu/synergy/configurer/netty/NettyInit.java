@@ -1,9 +1,7 @@
-package cn.laoniu.synergy.conf.netty;
+package cn.laoniu.synergy.configurer.netty;
 
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 /***

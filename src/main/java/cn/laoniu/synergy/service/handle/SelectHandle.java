@@ -1,15 +1,11 @@
 package cn.laoniu.synergy.service.handle;
 
-import cn.laoniu.synergy.conf.netty.MyChannelHandlerPool;
-import com.alibaba.fastjson.JSON;
+import cn.laoniu.synergy.common.constant.Constant;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /***
  * 选择处理器
@@ -28,6 +24,7 @@ public class SelectHandle implements WebSocketReadHandle {
 
     @Override
     public void handle(ChannelHandlerContext ctx, Object msg) throws Exception {
+
         //首次连接是FullHttpRequest，处理参数
         if (msg instanceof FullHttpRequest) {
             firstConnectHandle.handle(ctx, msg);
@@ -35,7 +32,10 @@ public class SelectHandle implements WebSocketReadHandle {
         } else if (msg instanceof TextWebSocketFrame) {
             TextWebSocketFrame frame = (TextWebSocketFrame) msg;
             //todo 区分markdown excel word ppt
-
+            //心跳检查
+            if (Constant.PING.equals(frame.text())) {
+                return;
+            }
             contentHandle.handle(ctx, frame);
         }
     }

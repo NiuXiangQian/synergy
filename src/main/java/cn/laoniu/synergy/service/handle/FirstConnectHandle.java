@@ -1,7 +1,6 @@
 package cn.laoniu.synergy.service.handle;
 
-import cn.laoniu.synergy.conf.netty.MyChannelHandlerPool;
-import com.alibaba.fastjson.JSON;
+import cn.laoniu.synergy.configurer.netty.ChannelHandlerPool;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.FullHttpRequest;
 import org.springframework.stereotype.Component;
@@ -25,17 +24,17 @@ public class FirstConnectHandle implements WebSocketReadHandle {
         String uri = request.uri();
 
         Map paramMap = getUrlParams(uri);
-        System.out.println("接收到的参数是：" + JSON.toJSONString(paramMap));
+//        System.out.println("接收到的参数是：" + JSON.toJSONString(paramMap));
 
         //记录群组
         Object gId = paramMap.get("gid");
-        MyChannelHandlerPool.bindGroupChannel((String) gId, ctx.channel());
-        MyChannelHandlerPool.Channel_ATTR.put(ctx.channel(), (String) gId);
+        ChannelHandlerPool.bindGroupChannel((String) gId, ctx.channel());
+        ChannelHandlerPool.Channel_ATTR.put(ctx.channel(), (String) gId);
 
         //如果url包含参数，需要处理
         if (uri.contains("?")) {
             String newUri = uri.substring(0, uri.indexOf("?"));
-            System.out.println("newUri = " + newUri);
+//            System.out.println("newUri = " + newUri);
             request.setUri(newUri);
         }
     }

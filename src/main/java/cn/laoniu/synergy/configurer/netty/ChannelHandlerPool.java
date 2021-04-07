@@ -1,4 +1,4 @@
-package cn.laoniu.synergy.conf.netty;
+package cn.laoniu.synergy.configurer.netty;
 
 import io.netty.channel.Channel;
 import io.netty.channel.group.ChannelGroup;
@@ -16,8 +16,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * @version 1.0
  * @since 2021/3/30 9:21 上午
  **/
-public class MyChannelHandlerPool {
-    public MyChannelHandlerPool() {
+public class ChannelHandlerPool {
+    public ChannelHandlerPool() {
     }
 
     public static ChannelGroup channelGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
@@ -28,10 +28,20 @@ public class MyChannelHandlerPool {
 
 
     /***
+      * 获取群组下的chanel
+      * @author nxq
+      * @param gid:
+      * @return java.util.Set<io.netty.channel.Channel>
+      */
+    public static Set<Channel> getGroupChanel(String gid) {
+        Set<Channel> channelSet = GroupChannel.get(gid);
+        return channelSet == null ? new HashSet<>() : channelSet;
+    }
+
+    /***
      * 绑定群组与channel
      */
     public static void bindGroupChannel(String gId, Channel channel) {
-        System.out.println("gId = " + gId);
         Set<Channel> channelSet = GroupChannel.get(gId);
         if (channelSet == null) {
             channelSet = new HashSet<>();

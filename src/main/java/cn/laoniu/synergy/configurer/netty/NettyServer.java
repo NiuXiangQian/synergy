@@ -1,4 +1,4 @@
-package cn.laoniu.synergy.conf.netty;
+package cn.laoniu.synergy.configurer.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -29,7 +29,7 @@ public class NettyServer {
     @Value("${netty.port}")
     private  int port;
     @Autowired
-    private MyWebSocketHandler myWebSocketHandler;
+    private WebSocketHandler webSocketHandler;
 
 
 
@@ -54,8 +54,7 @@ public class NettyServer {
                             ch.pipeline().addLast(new ChunkedWriteHandler());
                             ch.pipeline().addLast(new HttpObjectAggregator(8192));
 
-                            System.out.println("myWebSocketHandler = " + myWebSocketHandler);
-                            ch.pipeline().addLast(myWebSocketHandler);
+                            ch.pipeline().addLast(webSocketHandler);
                             ch.pipeline().addLast(new WebSocketServerProtocolHandler("/ws", null, true, 65536 * 10));
 
 

@@ -24,7 +24,6 @@ public class MarkDownModel implements DocModel {
 
     @Override
     public Object getData() {
-        System.out.println("this" + data);
         return data;
     }
 

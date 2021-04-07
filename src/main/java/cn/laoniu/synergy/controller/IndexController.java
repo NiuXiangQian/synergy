@@ -19,6 +19,7 @@ import java.util.UUID;
  **/
 @Controller
 public class IndexController {
+
     @Autowired
     private DocStorage docStorage;
 
