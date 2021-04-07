@@ -6,11 +6,12 @@ ___
 - maven 3.x
 ---
 ### 如何启动
+后段：
 - git clone 本项目
 - mvn package
 运行
-- 访问 127.0.0.1:8000
-![效果](hhttps://github.com/NiuXiangQian/synergy/master/doc/demo.png)
-___
+前端
+- 
+
 联系方式：qq：1603565290
 目前在做：重构为vue
