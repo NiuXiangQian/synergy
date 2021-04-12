@@ -1,6 +1,8 @@
-package cn.laoniu.synergy.service.handle;
+package cn.laoniu.synergy.service.handle.markdown;
 
 import cn.laoniu.synergy.configurer.netty.ChannelHandlerPool;
+import cn.laoniu.synergy.configurer.netty.bean.ChannelAttrBean;
+import cn.laoniu.synergy.service.handle.ContentHandle;
 import cn.laoniu.synergy.service.storage.DocStorage;
 import cn.laoniu.synergy.service.storage.model.DocModel;
 import io.netty.channel.Channel;
@@ -26,7 +28,8 @@ public class MarkDownContentHandle implements ContentHandle {
     @Override
     public void handle(ChannelHandlerContext ctx, TextWebSocketFrame frame) throws Exception {
         // 正常的TEXT消息类型
-        String gId = ChannelHandlerPool.Channel_ATTR.get(ctx.channel());
+        ChannelAttrBean attrBean = ChannelHandlerPool.Channel_ATTR.get(ctx.channel());
+        String gId = attrBean.getGid();
         String data = frame.text();
         DocModel docModel = docStorage.get(gId);
         docModel.setData(data);

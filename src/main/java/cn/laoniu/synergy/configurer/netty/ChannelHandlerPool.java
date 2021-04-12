@@ -1,5 +1,6 @@
 package cn.laoniu.synergy.configurer.netty;
 
+import cn.laoniu.synergy.configurer.netty.bean.ChannelAttrBean;
 import io.netty.channel.Channel;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
@@ -24,7 +25,7 @@ public class ChannelHandlerPool {
     //此处设置群组的id与对应Channel的管理
     private static Map<String, Set<Channel>> GroupChannel = new ConcurrentHashMap<>();
     //此处设置Channel的扩展属性
-    public static Map<Channel, String> Channel_ATTR = new ConcurrentHashMap<>();
+    public static Map<Channel, ChannelAttrBean> Channel_ATTR = new ConcurrentHashMap<>();
 
 
     /***
@@ -54,7 +55,7 @@ public class ChannelHandlerPool {
      * 取消绑定群组与channel
      */
     public static void unBindGroupChannel(Channel channel) {
-        String gid = Channel_ATTR.get(channel);
+        String gid = Channel_ATTR.get(channel).getGid();
         Set<Channel> channelSet = GroupChannel.get(gid);
         channelSet.remove(channel);
     }

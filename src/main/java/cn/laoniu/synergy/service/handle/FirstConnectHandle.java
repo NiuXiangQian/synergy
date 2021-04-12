@@ -1,6 +1,7 @@
 package cn.laoniu.synergy.service.handle;
 
 import cn.laoniu.synergy.configurer.netty.ChannelHandlerPool;
+import cn.laoniu.synergy.configurer.netty.bean.ChannelAttrBean;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.FullHttpRequest;
 import org.springframework.stereotype.Component;
@@ -23,18 +24,23 @@ public class FirstConnectHandle implements WebSocketReadHandle {
         FullHttpRequest request = (FullHttpRequest) msg;
         String uri = request.uri();
 
-        Map paramMap = getUrlParams(uri);
-//        System.out.println("接收到的参数是：" + JSON.toJSONString(paramMap));
+        Map<String, String> paramMap = getUrlParams(uri);
 
         //记录群组
-        Object gId = paramMap.get("gid");
-        ChannelHandlerPool.bindGroupChannel((String) gId, ctx.channel());
-        ChannelHandlerPool.Channel_ATTR.put(ctx.channel(), (String) gId);
+        ChannelAttrBean channelAttrBean = new ChannelAttrBean();
+        String gId = paramMap.get("gid");
+        String username = paramMap.get("username");
+
+        ChannelHandlerPool.bindGroupChannel(gId, ctx.channel());
+        channelAttrBean.setGid(gId);
+        channelAttrBean.setUsername(username);
+
+
+        ChannelHandlerPool.Channel_ATTR.put(ctx.channel(), channelAttrBean);
 
         //如果url包含参数，需要处理
         if (uri.contains("?")) {
             String newUri = uri.substring(0, uri.indexOf("?"));
-//            System.out.println("newUri = " + newUri);
             request.setUri(newUri);
         }
     }
